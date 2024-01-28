@@ -1,0 +1,17 @@
+<input
+  type="text"
+  class="w-[40%] p-2 border-black border-solid border-[1px]"
+  [(ngModel)]="videoSrc"
+  (ngModelChange)="onSrcInputChange()"
+  name="srcInput"
+/>
+
+<div class="w-full my-2"></div>
+
+<ng-template [ngIf]="showVideo">
+  <app-video [src]="videoSrc"></app-video>
+</ng-template>
+
+<ng-template [ngIf]="showError">
+  <app-error></app-error>
+</ng-template>
