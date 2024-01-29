@@ -6,12 +6,11 @@
   name="srcInput"
 />
 
-<div class="w-full my-2"></div>
-
-<ng-template [ngIf]="showVideo">
-  <app-video [src]="videoSrc"></app-video>
+<ng-template [ngIf]="showLoading">
+  <app-loading></app-loading>
 </ng-template>
-
-<ng-template [ngIf]="showError">
-  <app-error></app-error>
+<ng-template [ngIf]="showVideoDetails">
+  <app-video-details [videoInfo]="videoInfo"></app-video-details>
 </ng-template>
+<ng-template [ngIf]="showError"><app-error></app-error></ng-template>
+<ng-template [ngIf]="showDownload"><app-download></app-download></ng-template>

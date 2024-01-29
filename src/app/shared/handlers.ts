@@ -1,16 +1,9 @@
-import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
-import { catchError, map, of, tap } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { DOWNLOAD, SERVER_URL } from './constants';
 
-export const handleSrcInputChange = async (
-  http: HttpClient,
-  videoSrc: string,
-  showVideo: boolean,
-  showError: boolean
-) => {
-  const body = { ytVideoUrl: videoSrc };
-
+export const handleVideoDownload = (http: HttpClient, body: {}) => {
   http
-    .post('http://127.0.0.1:2024/download', body, {
+    .post(`${SERVER_URL}/${DOWNLOAD}`, body, {
       responseType: 'arraybuffer',
     })
     .subscribe((data: ArrayBuffer) => {
@@ -18,7 +11,7 @@ export const handleSrcInputChange = async (
       const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.href = url;
-      link.download = 'white trash - working.mp4';
-      // link.click();
+      link.download = 'new.mp4';
+      link.click();
     });
 };

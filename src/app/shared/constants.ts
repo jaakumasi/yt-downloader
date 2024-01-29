@@ -1,1 +1,6 @@
-export const SERVER_URL = "http://127.0.0.1:2024";
+export const SERVER_URL = 'http://127.0.0.1:2024';
+
+/* ENDPOINTS */
+export const VERIFY_URL = 'verify-url';
+export const GET_INFO = 'get-info';
+export const DOWNLOAD = 'download';
