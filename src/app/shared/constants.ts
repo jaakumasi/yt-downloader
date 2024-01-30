@@ -1,4 +1,4 @@
-export const SERVER_URL = 'http://127.0.0.1:2024';
+export const SERVER_URL = 'https://jolly-pear-panther.cyclic.app';
 
 /* ENDPOINTS */
 export const VERIFY_URL = 'verify-url';
