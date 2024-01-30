@@ -1,1 +1,25 @@
-<p>download works!</p>
+<div
+  class="flex justify-between p-4 mb-4 border-[#B1B1B1] border-solid border-[2px] rounded-[5px] bg-[#C8C8C8] text-[16px] md:text-[20px] lg:text-[20px]"
+>
+  <!--format-->
+  <div
+    class="font-bold py-2 px-7 w-[30%] flex justify-center items-center border-[#B1B1B1] border-solid border-[2px] rounded-[5px] bg-[#FFFFFF]"
+  >
+    {{ formatDetails.container }}
+  </div>
+
+  <!--quality-->
+  <div
+    class="font-bold py-2 px-7 w-[30%] flex justify-center items-center border-[#B1B1B1] border-solid border-[2px] rounded-[5px] bg-[#FFFFFF]"
+  >
+    {{ formatDetails.qualityLabel }}
+  </div>
+
+  <!--download-->
+  <div
+    class="p-2 w-[20%] flex justify-center items-center border-[#29E347] border-solid border-[2px] rounded-[5px] bg-[#29E347]"
+    (click)="onDownload()"
+  >
+    <img src="../../assets/download.png" />
+  </div>
+</div>
