@@ -2,7 +2,25 @@
 module.exports = {
   content: ["./src/**/*.{html,ts}"],
   theme: {
-    extend: {},
+    extend: {
+      backgroundColor: {
+        "main-bg": "#F6F6F6"
+      },
+      animation: {
+        'spin-infinite': 'spin-infinite 3s linear infinite'
+      },
+      keyframes: {
+        'spin-infinite': {
+          '0%': {
+            transform: 'rotate(0deg)'
+          },
+          '100%': {
+            transform: 'rotate(360deg)'
+          },
+
+        }
+      }
+    },
   },
   plugins: [],
 }
