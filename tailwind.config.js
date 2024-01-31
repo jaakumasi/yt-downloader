@@ -7,7 +7,7 @@ module.exports = {
         "main-bg": "#F6F6F6"
       },
       animation: {
-        'spin-infinite': 'spin-infinite 3s linear infinite'
+        'spin-infinite': 'spin-infinite 5s linear infinite'
       },
       keyframes: {
         'spin-infinite': {
