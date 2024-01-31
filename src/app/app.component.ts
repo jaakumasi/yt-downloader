@@ -70,6 +70,8 @@ export class AppComponent {
           this.http
             .post(`${SERVER_URL}/${GET_INFO}`, body)
             .subscribe((info: any) => {
+              console.log('app: ', info);
+
               this.videoInfo = {
                 videoDetails: info.videoDetails,
                 formats: info.formats,
