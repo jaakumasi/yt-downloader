@@ -1,6 +1,6 @@
 {
   "name": "YT downloader",
-  "short_name": "yt-downloader",
+  "short_name": "YT downloader",
   "theme_color": "#1976d2",
   "background_color": "#fafafa",
   "display": "standalone",
