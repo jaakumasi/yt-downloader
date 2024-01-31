@@ -1,5 +1,5 @@
 {
-  "name": "yt-downloader",
+  "name": "YT downloader",
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
