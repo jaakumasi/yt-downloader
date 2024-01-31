@@ -16,9 +16,7 @@ export class VideoDetailsComponent implements AfterViewInit {
   showDownloadOptions = false;
 
   ngAfterViewInit(): void {
-    //@ts-ignore
     const formats = this.videoInfo.formats;
-    console.log(this.videoInfo);
 
     this.videosWithAudio = formats
       .map((format: any) => {

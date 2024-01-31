@@ -2,8 +2,10 @@ import { CommonModule } from '@angular/common';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Store } from '@ngrx/store';
 import { DownloadComponent } from './download/download.component';
 import { LoadingComponent } from './loading/loading.component';
+import { MessageComponent } from './message/message.component';
 import {
   GET_INFO,
   INVALID_URL,
@@ -11,11 +13,8 @@ import {
   SERVER_URL,
   VERIFY_URL,
 } from './shared/constants';
-import { handleVideoDownload } from './shared/handlers';
-import { VideoDetailsComponent } from './video-details/video-details.component';
-import { MessageComponent } from './message/message.component';
-import { Store } from '@ngrx/store';
 import { changeTitle, changeUrl } from './store/store.actions';
+import { VideoDetailsComponent } from './video-details/video-details.component';
 
 @Component({
   selector: 'app-root',
@@ -76,14 +75,11 @@ export class AppComponent {
                 formats: info.formats,
               };
 
-              console.log('app, video src: ', this.videoSrc);
-
               // update the store
               this.store.dispatch(
                 changeTitle({ title: info.videoDetails.title })
               );
               this.store.dispatch(changeUrl({ url: this.videoSrc }));
-              // @ts-ignore
 
               this.showVideoDetails = true;
               this.showLoading = false;

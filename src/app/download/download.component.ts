@@ -1,8 +1,7 @@
-import { AfterViewInit, Component, Input, inject } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { handleVideoDownload } from '../shared/handlers';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { Component, Input, inject } from '@angular/core';
 import { Store } from '@ngrx/store';
+import { handleVideoDownload } from '../shared/handlers';
 
 @Component({
   selector: 'app-download',
@@ -11,7 +10,7 @@ import { Store } from '@ngrx/store';
   templateUrl: './download.component.html',
   styleUrl: './download.component.scss',
 })
-export class DownloadComponent implements AfterViewInit {
+export class DownloadComponent {
   http = inject(HttpClient);
   store = inject(Store);
   storeObs$ = this.store.select('initStateReducer');
@@ -19,18 +18,11 @@ export class DownloadComponent implements AfterViewInit {
   /* data [video title, format (qualityLabel (eg: 720p), container (eg: mp4), url)] */
   @Input() formatDetails!: any;
 
-  ngAfterViewInit(): void {
-    console.log(this.formatDetails);
-  }
-
   onDownload() {
     this.storeObs$.subscribe((state) => {
-      const { title, url } = state;
-      console.log('state url: ', url);
-      console.log('state title: ', title);
-
-      const body = { ytVideoUrl: url };
-      handleVideoDownload(this.http, body, title, this.formatDetails.container);
+      const { title } = state;
+      const url = this.formatDetails.url;
+      handleVideoDownload(url, title);
     });
   }
 }
