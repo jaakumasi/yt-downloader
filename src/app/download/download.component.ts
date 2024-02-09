@@ -21,7 +21,7 @@ export class DownloadComponent {
   onDownload() {
     this.storeObs$.subscribe((state) => {
       const { title } = state;
-      const url = this.formatDetails.url;
+      const url = this.formatDetails?.url;
       handleVideoDownload(url, title);
     });
   }
