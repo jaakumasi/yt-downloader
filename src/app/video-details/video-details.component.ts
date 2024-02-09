@@ -14,8 +14,13 @@ export class VideoDetailsComponent implements AfterViewInit {
   @Input() videoInfo!: any;
   videosWithAudio!: any[];
   showDownloadOptions = false;
+  videoThumbnail!: string;
 
   ngAfterViewInit(): void {
+    this.videoThumbnail =
+      this.videoInfo?.videoDetails.thumbnails[4]?.url ??
+      this.videoInfo?.videoDetails.thumbnails[3]?.url;
+
     const formats = this.videoInfo.formats;
 
     this.videosWithAudio = formats

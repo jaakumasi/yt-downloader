@@ -73,15 +73,15 @@ export class AppComponent {
               console.log('app: ', info);
 
               this.videoInfo = {
-                videoDetails: info.videoDetails,
+                videoDetails: info?.videoDetails,
                 formats: info.formats,
               };
 
               // update the store
               this.store.dispatch(
-                changeTitle({ title: info.videoDetails.title })
+                changeTitle({ title: info?.videoDetails.title })
               );
-              this.store.dispatch(changeUrl({ url: this.videoSrc }));
+              // this.store.dispatch(changeUrl({ url: this.videoSrc }));
 
               this.showVideoDetails = true;
               this.showLoading = false;
