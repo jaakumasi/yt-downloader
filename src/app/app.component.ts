@@ -44,9 +44,12 @@ export class AppComponent {
   store = inject(Store);
 
   onSrcInputChange() {
-    // do nothing if search input is empty
-    if (!this.videoSrc) {
-      this.showMessage = false;
+    // do nothing if search input is empty or doesn't match a yt video url
+    const reg = /https:\/\/youtu.be\/.+/;
+    if (!this.videoSrc || !reg.test(this.videoSrc)) {
+      this.showLoading = false;
+      this.message = INVALID_URL;
+      this.showMessage = true;
       return;
     }
 
